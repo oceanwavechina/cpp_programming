@@ -1,0 +1,31 @@
+Ice.Default.Locator=HiGrid/Locator:default -t 5000 -h grid.local -p 8061
+
+
+Ice.BackgroundLocatorCacheUpdates=1
+
+# 60*5
+Ice.Default.LocatorCacheTimeout=3
+
+Ice.IPv6=0
+
+Ice.MessageSizeMax=0
+
+#Ice.Default.EndpointSelection=Ordered
+Ice.Default.EndpointSelection=Random
+
+
+# for debug
+Ice.Trace.Locator=2
+Ice.Trace.Network=1
+#Ice.Trace.Retry=2
+#Ice.Trace.Protocol=2
+#Ice.Trace.ThreadPool=1
+
+
+# custom properties
+JX.ConnectionNum=2
+
+
+# only for AMI
+# Ice.ThreadPool.Client.StackSize=65535
+# Ice.ThreadPool.Client.SizeMax=100

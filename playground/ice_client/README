@@ -1,0 +1,9 @@
+测试例子：
+	./cpp_client config.client.local
+
+需要链接的lib：
+	-lIce -lIceUtil
+
+添加include搜索路径：
+	1. ice 的头文件目录，如：/usr/include/
+	2. cpp_client/ice_client
