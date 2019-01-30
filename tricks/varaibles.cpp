@@ -6,14 +6,39 @@
  */
 
 #include <stdio.h>
+#include <iostream>
+#include <vector>
 
+using namespace std;
 
-char* get_str(){
+char* get_str1() {
 
 	// 这句话，计算机都做了哪些操作？
 	char str[] = "abcd1234";
 
 	return str;
+}
+
+char* get_str2() {
+
+	// 这句话，计算机都做了哪些操作？
+	char *str = "abcd1234";
+
+	return str;
+}
+
+
+void test_order() {
+	int i = 5;
+	int j = i++;
+
+	cout << "{int i = 5; int j = i++;}:\t" << "i = " << i << ", j = " << j << endl;
+	
+
+	int a = 5;
+	int b = ++a;
+
+	cout << "{int a = 10; int b = ++a;}:\t" << "a = " << a << ", b = " << b << endl;
 }
 
 
@@ -51,16 +76,43 @@ char* get_str(){
 
 	4）也许您已经注意到#define 不是语句 不要在行末加分号，否则 会连分号一块置换。
  */
-typedef int* int_ptr_typedef;
-#define int_ptr_define int*
+void test_define_newtype()
+{
+	typedef int* int_ptr_typedef;
+	#define int_ptr_define int*
+
+	int_ptr_define a, b;
+	cout << "using macro define, type(a)=" << typeid(a).name() << ", type(b)=" << typeid(b).name() << endl;
+
+	int_ptr_typedef c, d;
+	cout << "using typedef define, type(c)=" << typeid(c).name() << ", type(d)=" << typeid(d).name() << endl;
+}
+
+void test_unsigned_varaible()
+{
+	vector<int> buf = {};
+	size_t sz = buf.size();
+
+	/* 这个判断永远是真的*/
+	// while(--sz >= 0 ){
+	/* 这个判断还是不容易读懂*/
+	// while(sz-- > 0 ){
+	/*最完美的方式*/
+	for(int i=0; i < sz; ++i)
+		cout << "in loop" << endl;
+	}
+}
 
 
 int main(int argc, char **argv) {
-	printf("%s", get_str());
+	cout << "get_str1():" << get_str1() << endl;
+	cout << "get_str2():" << get_str2() << endl;
 
-	int_ptr_define a, b;
+	test_define_newtype();
 
-	int_ptr_typedef c, d;
+	test_order();
+
+	test_unsigned_varaible();
 }
 
 

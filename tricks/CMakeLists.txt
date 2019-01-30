@@ -14,13 +14,13 @@ add_executable(fork_test ${fork_test_SRC})
 set(class_derive_1_SRC class_derive_1.cpp)
 add_executable(class_derive_1 ${class_derive_1_SRC})
 
-# class_derive_2.cpp
-set(class_derive_2_SRC class_derive_2.cpp)
-add_executable(class_derive_2 ${class_derive_2_SRC})
+# class_derive_slicing.cpp
+set(class_derive_slicing_SRC class_derive_slicing.cpp)
+add_executable(class_derive_slicing ${class_derive_slicing_SRC})
 
-# cpp_01.cpp
-set(cpp_01_SRC cpp_01.cpp)
-add_executable(cpp_01 ${cpp_01_SRC})
+# derived_class_exe_order.cpp
+set(derived_class_exe_order_SRC derived_class_exe_order.cpp)
+add_executable(derived_class_exe_order ${derived_class_exe_order_SRC})
 
 # test_new.cpp
 set(test_new_SRC test_new.cpp)
@@ -30,7 +30,7 @@ add_executable(test_new ${test_new_SRC})
 set(varaibles_SRC varaibles.cpp)
 add_executable(varaibles ${varaibles_SRC})
 
-# varaibles.cpp
+# size_vs_empty.cpp
 set(size_vs_empty_SRC size_vs_empty.cpp)
 add_executable(size_vs_empty ${size_vs_empty_SRC})
 
@@ -42,42 +42,41 @@ add_executable(toy_coroutine ${toy_coroutine_SRC})
 set(Duffs_device_SRC Duffs_device.cpp)
 add_executable(Duffs_device ${Duffs_device_SRC})
 
-# class_derive_3.cpp
-set(class_derive_3_SRC class_derive_3.cpp)
-add_executable(class_derive_3 ${class_derive_3_SRC})
+# class_derive_same_data_member.cpp
+set(class_derive_same_data_member_SRC class_derive_same_data_member.cpp)
+add_executable(class_derive_same_data_member ${class_derive_same_data_member_SRC})
 
-# class_derive_1.cpp
-set(class_derive_1_SRC class_derive_1.cpp)
-add_executable(class_derive_1 ${class_derive_1_SRC})
+# template_tricks.cpp
+set(template_tricks_SRC template_tricks.cpp)
+add_executable(template_tricks ${template_tricks_SRC})
 
-# Template_tricks.cpp
-set(Template_tricks_SRC Template_tricks.cpp)
-add_executable(Template_tricks ${Template_tricks_SRC})
-
-# Comma_expression_tricks.cpp
-set(Comma_expression_tricks_SRC Comma_expression_tricks.cpp)
-add_executable(Comma_expression_tricks ${Comma_expression_tricks_SRC})
+# comma_expression_tricks.cpp
+set(comma_expression_tricks_SRC comma_expression_tricks.cpp)
+add_executable(comma_expression_tricks ${comma_expression_tricks_SRC})
 
 # reverse_pair_tricks.cpp
 set(reverse_pair_tricks_SRC reverse_pair_tricks.cpp)
 add_executable(reverse_pair_tricks ${reverse_pair_tricks_SRC})
 
-# other_tricks.cpp
-set(other_tricks_SRC other_tricks.cpp)
-add_executable(other_tricks ${other_tricks_SRC})
+# macro_tricks.cpp
+set(macro_tricks_SRC macro_tricks.cpp)
+add_executable(macro_tricks ${macro_tricks_SRC})
 
-# question_tricks.cpp
-set(question_tricks_SRC question_tricks.cpp)
-add_executable(question_tricks ${question_tricks_SRC})
+# execute_func_before_main.cpp
+set(execute_func_before_main_SRC execute_func_before_main.cpp)
+add_executable(execute_func_before_main ${execute_func_before_main_SRC})
 
-# null_and_virtual_func.cpp
-set(null_and_virtual_func_SRC null_and_virtual_func.cpp)
-add_executable(null_and_virtual_func ${null_and_virtual_func_SRC})
+# virtual_func_of_null_object.cpp
+set(virtual_func_of_null_object_SRC virtual_func_of_null_object.cpp)
+add_executable(virtual_func_of_null_object ${virtual_func_of_null_object_SRC})
+
+# number_implicit_convert.cpp
+set(number_implicit_convert_SRC number_implicit_convert.cpp)
+add_executable(number_implicit_convert ${number_implicit_convert_SRC})
+
 
 endif(0)
 
-
-# cpp_02.cpp
-set(cpp_02_SRC cpp_02.cpp)
-add_executable(cpp_02 ${cpp_02_SRC})
-
+# exception_handler.cpp
+set(exception_handler_SRC exception_handler.cpp)
+add_executable(exception_handler ${exception_handler_SRC})
