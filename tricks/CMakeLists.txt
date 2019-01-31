@@ -74,9 +74,13 @@ add_executable(virtual_func_of_null_object ${virtual_func_of_null_object_SRC})
 set(number_implicit_convert_SRC number_implicit_convert.cpp)
 add_executable(number_implicit_convert ${number_implicit_convert_SRC})
 
+# stack_unwinding_in_exception.cpp
+set(stack_unwinding_in_exception_SRC stack_unwinding_in_exception.cpp)
+add_executable(stack_unwinding_in_exception ${stack_unwinding_in_exception_SRC})
 
 endif(0)
 
-# exception_handler.cpp
-set(exception_handler_SRC exception_handler.cpp)
-add_executable(exception_handler ${exception_handler_SRC})
+# access_private_member_data.cpp
+set(access_private_member_data_SRC access_private_member_data.cpp)
+add_executable(access_private_member_data ${access_private_member_data_SRC})
+
