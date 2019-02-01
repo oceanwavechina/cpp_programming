@@ -54,10 +54,17 @@ add_executable(9_final_delete ${9_final_delete_SRC})
 set(10_constexpr_SRC 10_constexpr.cpp)
 add_executable(10_constexpr ${10_constexpr_SRC})
 
-endif(0)
-
 # 11_lambda_function
 set(11_lambda_function_SRC 11_lambda_function.cpp)
 add_executable(11_lambda_function ${11_lambda_function_SRC})
+
+
+endif(0)
+
+# 12_multi_threading
+set(12_multi_threading_SRC 12_multi_threading.cpp)
+add_executable(12_multi_threading ${12_multi_threading_SRC})
+
+
 
 
