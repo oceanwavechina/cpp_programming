@@ -58,13 +58,14 @@ add_executable(10_constexpr ${10_constexpr_SRC})
 set(11_lambda_function_SRC 11_lambda_function.cpp)
 add_executable(11_lambda_function ${11_lambda_function_SRC})
 
+# 12_multi_threading_basic
+set(12_multi_threading_basic_SRC 12_multi_threading_basic.cpp)
+add_executable(12_multi_threading_basic ${12_multi_threading_basic_SRC})
 
 endif(0)
 
-# 12_multi_threading
-set(12_multi_threading_SRC 12_multi_threading.cpp)
-add_executable(12_multi_threading ${12_multi_threading_SRC})
 
-
-
+# 13_multi_threading_lock_lazy_init
+set(13_multi_threading_lock_lazy_init_SRC 13_multi_threading_lock_lazy_init.cpp)
+add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_init_SRC})
 
