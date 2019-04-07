@@ -78,9 +78,8 @@ add_executable(number_implicit_convert ${number_implicit_convert_SRC})
 set(stack_unwinding_in_exception_SRC stack_unwinding_in_exception.cpp)
 add_executable(stack_unwinding_in_exception ${stack_unwinding_in_exception_SRC})
 
-endif(0)
-
 # access_private_member_data.cpp
 set(access_private_member_data_SRC access_private_member_data.cpp)
 add_executable(access_private_member_data ${access_private_member_data_SRC})
 
+endif(0)

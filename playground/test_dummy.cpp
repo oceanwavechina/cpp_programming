@@ -465,6 +465,13 @@ void test_array(char* p[])
 	cout << sizeof(p[0]) << endl;
 }
 
+void test_boost_uuid()
+{
+	boost::uuids::uuid a_uuid = boost::uuids::random_generator()(); // 这里是两个() ，因为这里是调用的 () 的运算符重载
+	const string tmp_uuid = boost::uuids::to_string(a_uuid);
+	cout << "boost uuid:" << tmp_uuid.substr(0, 16) << endl;
+}
+
 int main(void)
 {
 
@@ -514,8 +521,10 @@ int main(void)
 //	test_enum();
 //	test_switchf();
 
-	char* p[] = {"1234", "456", "789"};
-	test_array(p);
+	// char* p[] = {"1234", "456", "789"};
+	// test_array(p);
+
+	test_boost_uuid();
 
     return 0;
 }
