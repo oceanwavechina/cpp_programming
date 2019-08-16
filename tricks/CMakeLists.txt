@@ -83,3 +83,8 @@ set(access_private_member_data_SRC access_private_member_data.cpp)
 add_executable(access_private_member_data ${access_private_member_data_SRC})
 
 endif(0)
+
+
+# forbid_instial_base_class.cpp
+set(forbid_instial_base_class_SRC forbid_instial_base_class.cpp)
+add_executable(forbid_instial_base_class ${forbid_instial_base_class_SRC})
