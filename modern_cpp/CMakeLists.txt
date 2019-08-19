@@ -62,10 +62,20 @@ add_executable(11_lambda_function ${11_lambda_function_SRC})
 set(12_multi_threading_basic_SRC 12_multi_threading_basic.cpp)
 add_executable(12_multi_threading_basic ${12_multi_threading_basic_SRC})
 
-endif(0)
-
+# 13_multi_threading_lock_lazy_init
+set(13_multi_threading_lock_lazy_init_SRC 13_multi_threading_lock_lazy_init.cpp)
+add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_init_SRC})
 
 # 13_multi_threading_lock_lazy_init
 set(13_multi_threading_lock_lazy_init_SRC 13_multi_threading_lock_lazy_init.cpp)
 add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_init_SRC})
 
+# 14_pointers
+set(14_pointers_SRC 14_pointers.cpp)
+add_executable(14_pointers ${14_pointers_SRC})
+
+endif(0)
+
+# 14_pointers
+set(14_pointers_SRC 14_pointers.cpp)
+add_executable(14_pointers ${14_pointers_SRC})
