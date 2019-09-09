@@ -1,7 +1,7 @@
 project(modern_cpp)
 cmake_minimum_required(VERSION 3.6)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -O2 -std=c++14")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -std=c++11 -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe -std=c++2a -g")
 
 include_directories(
     /usr/local/opt/openssl/include
@@ -74,8 +74,12 @@ add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_
 set(14_pointers_SRC 14_pointers.cpp)
 add_executable(14_pointers ${14_pointers_SRC})
 
+# 15_macro
+set(15_macro_SRC 15_macro.cpp)
+add_executable(15_macro ${15_macro_SRC})
+
 endif(0)
 
-# 14_pointers
-set(14_pointers_SRC 14_pointers.cpp)
-add_executable(14_pointers ${14_pointers_SRC})
+# 15_macro
+set(15_macro_SRC 15_macro.cpp)
+add_executable(15_macro ${15_macro_SRC})

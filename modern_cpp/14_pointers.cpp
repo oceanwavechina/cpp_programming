@@ -2,7 +2,7 @@
  * @Author: liuyanan 
  * @Date: 2019-08-19 18:27:30 
  * @Last Modified by: liuyanan
- * @Last Modified time: 2019-08-19 20:28:00
+ * @Last Modified time: 2019-08-19 20:58:11
  */
 
 #include <memory>
@@ -58,6 +58,9 @@ struct Good: public std::enable_shared_from_this<Good>
     shared_ptr<Good> getptr() {
         return shared_from_this();
     }
+private:
+    Good() {}
+
 };
 
 struct Bad {
@@ -78,7 +81,7 @@ int main(int argc, char const *argv[])
     std::shared_ptr<Good> gp2 = gp1->getptr();
     cout << "gp2.use_count():" << gp2.use_count() << "\n\n";
 
-
+#if 0
     try{
         Good not_so_good;
         cout << "before called getptr" << "\n";
@@ -90,6 +93,7 @@ int main(int argc, char const *argv[])
     } catch(bad_weak_ptr& e) {
         cout << "exception:" << e.what() << "\n\n";
     }
+#endif
 
 
     shared_ptr<Bad> bp1 = make_shared<Bad>();
