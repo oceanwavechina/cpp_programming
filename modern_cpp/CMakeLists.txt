@@ -80,6 +80,6 @@ add_executable(15_macro ${15_macro_SRC})
 
 endif(0)
 
-# 15_macro
-set(15_macro_SRC 15_macro.cpp)
-add_executable(15_macro ${15_macro_SRC})
+# 16_shared_ptr 
+set(16_shared_ptr_SRC 16_shared_ptr.cpp)
+add_executable(16_shared_ptr ${16_shared_ptr_SRC})
