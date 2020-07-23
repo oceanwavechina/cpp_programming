@@ -1,0 +1,58 @@
+version: '3.1'
+
+services:
+  zoo1:
+    image: zookeeper
+    restart: always
+    privileged: true
+    hostname: zoo1
+    ports:
+      - 2181:2181
+    volumes: # 挂载数据
+      - /Users/liuyanan/my_work/Eclipse_Space/cpp_programming.git/zookeeper_box/zookeeper/node1/data:/data
+      - /Users/liuyanan/my_work/Eclipse_Space/cpp_programming.git/zookeeper_box/zookeeper/node1/datalog:/datalog
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+    networks:
+      default:
+        ipv4_address: 172.170.0.14
+
+  zoo2:
+    image: zookeeper
+    restart: always
+    privileged: true
+    hostname: zoo2
+    ports:
+      - 2182:2181
+    volumes: # 挂载数据
+      - /Users/liuyanan/my_work/Eclipse_Space/cpp_programming.git/zookeeper_box/zookeeper/node2/data:/data
+      - /Users/liuyanan/my_work/Eclipse_Space/cpp_programming.git/zookeeper_box/zookeeper/node2/datalog:/datalog
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
+    networks:
+      default:
+        ipv4_address: 172.170.0.15
+
+  zoo3:
+    image: zookeeper
+    restart: always
+    privileged: true
+    hostname: zoo3
+    ports:
+      - 2183:2181
+    volumes: # 挂载数据
+      - /Users/liuyanan/my_work/Eclipse_Space/cpp_programming.git/zookeeper_box/zookeeper/node3/data:/data
+      - /Users/liuyanan/my_work/Eclipse_Space/cpp_programming.git/zookeeper_box/zookeeper/node3/datalog:/datalog
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+    networks:
+      default:
+        ipv4_address: 172.170.0.16
+
+networks: # 自定义网络
+  default:
+    external:
+      name: zoonet
