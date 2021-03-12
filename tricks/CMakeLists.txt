@@ -90,10 +90,14 @@ add_executable(forbid_instial_base_class ${forbid_instial_base_class_SRC})
 set(noncopyable_SRSC noncopyable.cpp)
 add_executable(noncopyable ${noncopyable_SRSC})
 
-
-endif(0)
-
 # sizeof_impl_and_address_calculate.cpp
 set(sizeof_impl_and_address_calculate_SRSC sizeof_impl_and_address_calculate.cpp)
 add_executable(sizeof_impl_and_address_calculate ${sizeof_impl_and_address_calculate_SRSC})
+
+endif(0)
+
+# inherit_STL_templete.cpp
+set(inherit_STL_templete_SRSC inherit_STL_templete.cpp)
+add_executable(inherit_STL_templete ${inherit_STL_templete_SRSC})
+
 

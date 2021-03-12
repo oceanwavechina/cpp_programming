@@ -15,6 +15,10 @@
     使用静态检查的方法，可以所有的接口都拿出来，组成一个接口类，将 构造/析构函数 声明为protected
 */
 #include <vector>
+#include <iostream>
+
+using namespace std;
+
 
 #if 0
 class Base {
@@ -49,20 +53,12 @@ public:
 };
 */
 
-// stl中的容器可以继承
-using namespace std;
-template<typename T>
-class DVec: public vector<long> {
-
-};
 
 int main(int argc, char const *argv[])
 {
     //Base obj;
     // Derive obj;
-    Base private_desctructure;
-
-    std::vector<long> vec;
+    //Base private_desctructure;
 
     /* code */
     return 0;
