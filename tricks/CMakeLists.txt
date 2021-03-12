@@ -82,9 +82,6 @@ add_executable(stack_unwinding_in_exception ${stack_unwinding_in_exception_SRC})
 set(access_private_member_data_SRC access_private_member_data.cpp)
 add_executable(access_private_member_data ${access_private_member_data_SRC})
 
-endif(0)
-
-
 # forbid_instial_base_class.cpp
 set(forbid_instial_base_class_SRC forbid_instial_base_class.cpp)
 add_executable(forbid_instial_base_class ${forbid_instial_base_class_SRC})
@@ -92,3 +89,11 @@ add_executable(forbid_instial_base_class ${forbid_instial_base_class_SRC})
 # noncopyable.cpp
 set(noncopyable_SRSC noncopyable.cpp)
 add_executable(noncopyable ${noncopyable_SRSC})
+
+
+endif(0)
+
+# sizeof_impl_and_address_calculate.cpp
+set(sizeof_impl_and_address_calculate_SRSC sizeof_impl_and_address_calculate.cpp)
+add_executable(sizeof_impl_and_address_calculate ${sizeof_impl_and_address_calculate_SRSC})
+

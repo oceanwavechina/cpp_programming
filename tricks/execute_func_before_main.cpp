@@ -33,7 +33,6 @@ int StaticObj::_static_var = func("in static member init");
 
 
 int main(int argc, char **argv) {
-
 	cout << "this is main" << endl;
 
 	return 0;
