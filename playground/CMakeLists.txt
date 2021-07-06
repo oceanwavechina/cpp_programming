@@ -17,23 +17,35 @@ link_directories(
 
 
 
+
+if(0)
+
 # test_dummy
 set(test_dummy_SRC test_dummy.cpp)
 add_executable(test_dummy ${test_dummy_SRC})
 target_link_libraries(test_dummy jsoncpp boost_system)
 
-if(0)
+
 # aws4_signature
 set(aws4_signature_SRC aws4_signature.cpp)
 add_executable(aws4_signature ${aws4_signature_SRC})
 target_link_libraries(aws4_signature ssl crypto curl)
 
 
-
-
-
 # test system call wrapper
 set(systemcall_test_SRC systemcall_test.cpp)
 add_executable(systemcall_test ${systemcall_test_SRC})
 
+# runcode
+set(runcode_SRC runcode.cpp)
+add_executable(runcode ${runcode_SRC})
+
+
 endif(0)
+
+
+
+# test_dummy
+set(test_dummy_SRC test_dummy.cpp)
+add_executable(test_dummy ${test_dummy_SRC})
+target_link_libraries(test_dummy jsoncpp boost_system)

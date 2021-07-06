@@ -472,6 +472,12 @@ void test_boost_uuid()
 	cout << "boost uuid:" << tmp_uuid.substr(0, 16) << endl;
 }
 
+void test_cast()
+{
+	long val = boost::lexical_cast<long>("");
+	cout << "cout val:" << val << endl;
+}
+
 int main(void)
 {
 
@@ -524,7 +530,9 @@ int main(void)
 	// char* p[] = {"1234", "456", "789"};
 	// test_array(p);
 
-	test_boost_uuid();
+	//test_boost_uuid();
+
+	test_cast();
 
     return 0;
 }

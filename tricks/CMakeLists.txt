@@ -94,10 +94,15 @@ add_executable(noncopyable ${noncopyable_SRSC})
 set(sizeof_impl_and_address_calculate_SRSC sizeof_impl_and_address_calculate.cpp)
 add_executable(sizeof_impl_and_address_calculate ${sizeof_impl_and_address_calculate_SRSC})
 
-endif(0)
-
 # inherit_STL_templete.cpp
 set(inherit_STL_templete_SRSC inherit_STL_templete.cpp)
 add_executable(inherit_STL_templete ${inherit_STL_templete_SRSC})
+
+endif(0)
+
+# object_initialize_list_order.cpp
+set(object_initialize_list_order_SRSC object_initialize_list_order.cpp)
+add_executable(object_initialize_list_order ${object_initialize_list_order_SRSC})
+
 
 

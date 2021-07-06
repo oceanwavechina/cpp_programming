@@ -36,6 +36,16 @@ int main(int argc, char const *argv[])
         exit(1);
     }
 
+    // struct ACL ALL_ACL[] = {{ZOO_PERM_ALL, ZOO_ANYONE_ID_UNSAFE}};
+    // struct ACL_vector ALL_PERMS = {1, ALL_ACL};
+    int ret = zoo_acreate(zkhandle, "/QueryServer", "alive", 5,
+           &ZOO_OPEN_ACL_UNSAFE, ZOO_EPHEMERAL,
+           QueryServer_string_completion, "zoo_acreate");
+    if (ret) {
+        fprintf(stderr, "Error %d for %s\n", ret, "acreate");
+        exit(EXIT_FAILURE);
+    }
+
     this_thread::sleep_for(10s);
 
     zookeeper_close(zkhandle);
