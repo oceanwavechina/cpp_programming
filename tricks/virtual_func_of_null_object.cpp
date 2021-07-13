@@ -10,7 +10,7 @@
 using namespace std;
 
 /*
- *	TODO: 请从原理和c++的底层实现上解释
+ *  TODO: 璇蜂粠鍘熺悊鍜宑++鐨勫簳灞傚疄鐜颁笂瑙ｉ噴
  *
  */
 
@@ -18,22 +18,22 @@ using namespace std;
 class A
 {
 public:
-	void fun() {
-		cout << "fun()" << endl;
-	}
+    void fun() {
+        cout << "fun()" << endl;
+    }
 
-	virtual void fun1(){
-		cout << "virtual fun()" << endl;
-	}
+    virtual void fun1(){
+        cout << "virtual fun()" << endl;
+    }
 };
 
 int main(int argc, char **argv) {
 
-	A* pa = NULL;
+    A* pa = NULL;
 
-	pa->fun();//调用成功
+    pa->fun();//璋冪敤鎴愬姛
 
-	pa->fun1();//程序崩溃，报错：引发一场，读取访问权限冲突
+    pa->fun1();//绋嬪簭宕╂簝锛屾姤閿欙細寮曞彂涓�鍦猴紝璇诲彇璁块棶鏉冮檺鍐茬獊
 
-	return 0;
+    return 0;
 }
