@@ -98,11 +98,15 @@ add_executable(sizeof_impl_and_address_calculate ${sizeof_impl_and_address_calcu
 set(inherit_STL_templete_SRSC inherit_STL_templete.cpp)
 add_executable(inherit_STL_templete ${inherit_STL_templete_SRSC})
 
-endif(0)
-
 # object_initialize_list_order.cpp
 set(object_initialize_list_order_SRSC object_initialize_list_order.cpp)
 add_executable(object_initialize_list_order ${object_initialize_list_order_SRSC})
+
+endif(0)
+
+# class_derive_1.cpp
+set(class_derive_1_SRSC class_derive_1.cpp)
+add_executable(class_derive_1 ${class_derive_1_SRSC})
 
 
 

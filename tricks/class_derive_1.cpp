@@ -15,7 +15,9 @@ int i=0;
 class Base
 {
 public:
-	Base(){}
+	Base(){
+		cout << "Base Constructor" << endl;
+	}
 	virtual ~Base() {
 		cout << "Base destructor" << endl;
 	}
@@ -31,7 +33,12 @@ public:
 class Derived : public Base
 {
 public:
-	Derived() {
+	Derived()
+		//
+		// 这里我们没有显示的调用基类的构造函数
+		//	c++会调用默认的基类构造函数
+		//
+	{
 		_counter = ++i;
 		cout << "construct:" << _counter << endl;
 	}
