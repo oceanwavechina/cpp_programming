@@ -69,6 +69,24 @@ int main(int argc, char **argv) {
 	a_1->test_call_delete_inside();
 #endif
 
+	cout << "---------------- using malloc begin (placement new) -----------------" << endl << endl;
+
+	void* mem = malloc(sizeof(A));
+	A* p_a = new(mem) A();	// placement new
+
+	p_a->~A();
+	free(mem);
+
+
+	// 所以也是可以在栈上分配空间的
+	char stack_mem[1000];
+	A* p_b = new(stack_mem) A();	// placement new
+
+	p_b->~A();
+
+
+	cout << "---------------- using malloc end (placement new) -----------------" << endl << endl;
+
 	return 0;
 }
 

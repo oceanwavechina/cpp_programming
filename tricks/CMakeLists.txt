@@ -102,11 +102,13 @@ add_executable(inherit_STL_templete ${inherit_STL_templete_SRSC})
 set(object_initialize_list_order_SRSC object_initialize_list_order.cpp)
 add_executable(object_initialize_list_order ${object_initialize_list_order_SRSC})
 
+# reference_member.cpp
+set(reference_member_SRSC reference_member.cpp)
+add_executable(reference_member ${reference_member_SRSC})
+
 endif(0)
 
-# class_derive_1.cpp
-set(class_derive_1_SRSC class_derive_1.cpp)
-add_executable(class_derive_1 ${class_derive_1_SRSC})
-
-
+# test_new.cpp
+set(test_new_SRC test_new.cpp)
+add_executable(test_new ${test_new_SRC})
 
