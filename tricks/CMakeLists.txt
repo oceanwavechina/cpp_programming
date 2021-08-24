@@ -106,9 +106,13 @@ add_executable(object_initialize_list_order ${object_initialize_list_order_SRSC}
 set(reference_member_SRSC reference_member.cpp)
 add_executable(reference_member ${reference_member_SRSC})
 
-endif(0)
-
 # test_new.cpp
 set(test_new_SRC test_new.cpp)
 add_executable(test_new ${test_new_SRC})
+
+endif(0)
+
+# the_const.cpp
+set(the_const_SRC the_const.cpp)
+add_executable(the_const ${the_const_SRC})
 
