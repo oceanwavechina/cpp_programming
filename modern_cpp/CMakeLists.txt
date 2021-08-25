@@ -18,9 +18,9 @@ set(1_initialization_SRC 1_initialization.cpp)
 add_executable(1_initialization ${1_initialization_SRC})
 target_link_libraries(1_initialization)
 
-# 2_auto_type
-set(2_auto_type_SRC 2_auto_type.cpp)
-add_executable(2_auto_type ${2_auto_type_SRC})
+# weak_ptr_and_cycle_ref
+set(weak_ptr_and_cycle_ref_SRC weak_ptr_and_cycle_ref.cpp)
+add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 
 # 3_for_each
 set(3_for_each_SRC 3_for_each.cpp)
@@ -78,8 +78,12 @@ add_executable(14_pointers ${14_pointers_SRC})
 set(15_macro_SRC 15_macro.cpp)
 add_executable(15_macro ${15_macro_SRC})
 
+# shared_ptr 
+set(shared_ptr_SRC shared_ptr.cpp)
+add_executable(shared_ptr ${shared_ptr_SRC})
+
 endif(0)
 
-# 16_shared_ptr 
-set(16_shared_ptr_SRC 16_shared_ptr.cpp)
-add_executable(16_shared_ptr ${16_shared_ptr_SRC})
+# weak_ptr_and_cycle_ref
+set(weak_ptr_and_cycle_ref_SRC weak_ptr_and_cycle_ref.cpp)
+add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})

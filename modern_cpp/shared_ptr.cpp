@@ -19,6 +19,8 @@ using namespace std;
 TODO: 智能指针多线程安全问题
 1. 对于指向同一个 object 的 不同shared_ptr， 其引用计数的变化是安全的
 2. 对于 相同的以个 shared_ptr， 多线程对其修改时，是不安全的，会引发问题
+3. shared_ptr 赋值操作会是对象引用计数加1， 赋值操作的过程中到底发生了什么？
+3. shared_ptr 的继承关系 ？
 
 
 第一个问题源码实现 (为什么不同的shared_ptr指针引用计数是安全的)
@@ -51,6 +53,38 @@ TODO: 智能指针多线程安全问题
         if (__cntrl_ == 0)
             __throw_bad_weak_ptr();
     } 
+
+
+第三个问题（赋值操作的过程中到底发生了什么）
+	1. 赋值操作，实际上是通过构造函数新创建一个 shared_ptr 然后返回
+	2. shared_ptr 在构建的时候，会保存计数器对象的指针，同时把计数器加1
+
+	shared_ptr<_Tp>::shared_ptr(const shared_ptr& __r) _NOEXCEPT
+    : __ptr_(__r.__ptr_),
+      __cntrl_(__r.__cntrl_)
+	{
+		if (__cntrl_)
+			__cntrl_->__add_shared();
+	}
+
+
+第四个问题（shared_ptr 的继承关系）
+	shared_ptr {
+		element_type*      __ptr_;
+    	__shared_weak_count* __cntrl_;
+	}
+
+	其中 __shared_weak_count 是父类， __cntrl_ 实际指向的对象是 __shared_ptr_pointer
+
+							 派生
+		__shared_weak_count ------> __shared_ptr_pointer
+
+		其中 __shared_weak_count 只负责引用计数的计算 和 对象删除的接口
+		而 __shared_ptr_pointer 则是具体实现了 对象删除接口，比如：
+			virtual void __on_zero_shared() _NOEXCEPT;
+    		virtual void __on_zero_shared_weak() _NOEXCEPT;
+    	也就是当 __shared_weak_count 计数为 -1 (需要释放对象时)， 就会调用 虚函数 __on_zero_shared，而这个函数在子类(__shared_ptr_pointer)中实现
+
 
 补充:
     在boost <= 1.4.6 时，对智能指针进行hash，只能获得true 和 false 两个值
