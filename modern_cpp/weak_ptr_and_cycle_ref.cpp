@@ -130,9 +130,27 @@ int main(int argc, char const *argv[])
 	 	 	这里的 p_b->pear = p_a 这个操作， 并不会改变 p_a 的引用计数
 	 */
 
+	/* ******************************************************************************** */
+
+	weak_ptr<B> p_weak;
+	{
+		shared_ptr<B> p_b = make_shared<B>();
+		p_weak = p_b;
+		if(p_weak.lock()) {
+			cout << "p_weak holding object" << endl;
+		}
+	}
+	shared_ptr<B> p_share = p_weak.lock();
+	assert( p_share == nullptr);
+	if(p_share == nullptr) {
+		cout << "after shared_ptr released, p_weak did not hold object" << endl << endl;
+	}
+
+
+
+
 
 	this_thread::sleep_for(200s);
-
 
     return 0;
 }
