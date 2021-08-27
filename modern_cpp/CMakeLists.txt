@@ -34,9 +34,9 @@ add_executable(4_nullptr ${4_nullptr_SRC})
 set(5_enum_class_SRC 5_enum_class.cpp)
 add_executable(5_enum_class ${5_enum_class_SRC})
 
-# 6_static_assert
-set(6_static_assert_SRC 6_static_assert.cpp)
-add_executable(6_static_assert ${6_static_assert_SRC})
+# move
+set(move_SRC move.cpp)
+add_executable(move ${move_SRC})
 
 # 7_delegating_constructor
 set(7_delegating_constructor_SRC 7_delegating_constructor.cpp)
@@ -66,13 +66,9 @@ add_executable(12_multi_threading_basic ${12_multi_threading_basic_SRC})
 set(13_multi_threading_lock_lazy_init_SRC 13_multi_threading_lock_lazy_init.cpp)
 add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_init_SRC})
 
-# 13_multi_threading_lock_lazy_init
-set(13_multi_threading_lock_lazy_init_SRC 13_multi_threading_lock_lazy_init.cpp)
-add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_init_SRC})
-
-# 14_pointers
-set(14_pointers_SRC 14_pointers.cpp)
-add_executable(14_pointers ${14_pointers_SRC})
+# enable_shared_from_this
+set(enable_shared_from_this_SRC 14_pointers.cpp)
+add_executable(enable_shared_from_this ${enable_shared_from_this_SRC})
 
 # 15_macro
 set(15_macro_SRC 15_macro.cpp)
@@ -82,8 +78,13 @@ add_executable(15_macro ${15_macro_SRC})
 set(shared_ptr_SRC shared_ptr.cpp)
 add_executable(shared_ptr ${shared_ptr_SRC})
 
-endif(0)
-
 # weak_ptr_and_cycle_ref
 set(weak_ptr_and_cycle_ref_SRC weak_ptr_and_cycle_ref.cpp)
 add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
+
+endif(0)
+
+
+# move
+set(move_SRC move.cpp)
+add_executable(move ${move_SRC})

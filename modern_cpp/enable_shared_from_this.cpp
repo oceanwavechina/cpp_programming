@@ -12,6 +12,20 @@ using namespace std;
 
 
 /*
+这个模板的机制就是从 this 得到一个 shared_ptr：
+
+1. 为什么不直接返回 this ?
+	因为 this 是底层具体对象实例，而 share_ptr 是一个 wrapper，用来自动管理 this 的周期
+
+2. 为什么不能返回 shared_ptr(this)？
+	首先，每次调用 shared_ptr(this)，相当于创建一个新的 shared_ptr 对象，新的意思是，底层的计数器会new一个新的对象
+	想想调用多次的情况，就会生成多个计数器，每个计数器都像控制这个this 对象。但是这些计数器有不相关
+
+	要知道 share_ptr 实现的原理是：多个share_ptr对象底层共享一个 计数器，这样才能生效
+	要是多个 share_ptr 对象不共享计数器，那当一个释放的时候，其他的 share_ptr 就成了炸弹
+
+
+
 template<class _Tp>
 class _LIBCPP_TEMPLATE_VIS enable_shared_from_this
 {
@@ -58,13 +72,16 @@ struct Good: public std::enable_shared_from_this<Good>
     shared_ptr<Good> getptr() {
         return shared_from_this();
     }
-private:
+//private:
     Good() {}
 
 };
 
 struct Bad {
     shared_ptr<Bad> getptr() {
+    	/*
+
+    	 */
         return shared_ptr<Bad>(this);
     }
     ~Bad() {
@@ -76,6 +93,12 @@ int main(int argc, char const *argv[])
 {
     /* 这里的两个shared_ptr指向了同一个对象，并且对象的计数器是一个
         不会造成一个其中一个指针析构时，造成对象被删除，从而造成安全问题
+
+       也就是这样的情况：
+		   shared_ptr \
+						 counter -> object
+		   shared_ptr /
+
     */
     std::shared_ptr<Good> gp1 = std::make_shared<Good>();
     std::shared_ptr<Good> gp2 = gp1->getptr();
@@ -96,6 +119,15 @@ int main(int argc, char const *argv[])
 #endif
 
 
+    /* 这里的两个shared_ptr指向了同一个对象，并且有两个 计数器
+        其中一个shared_ptr 释放了对象，另个就成了炸弹
+
+       也就是这样的情况：
+		   shared_ptr - counter  \
+									object
+		   shared_ptr - counter  /
+
+    */
     shared_ptr<Bad> bp1 = make_shared<Bad>();
     shared_ptr<Bad> bp2 = bp1->getptr();
     cout << "bp1.use_count():" << bp2.use_count() << "\n\n";
