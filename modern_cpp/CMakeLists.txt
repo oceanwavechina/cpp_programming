@@ -22,9 +22,9 @@ target_link_libraries(1_initialization)
 set(weak_ptr_and_cycle_ref_SRC weak_ptr_and_cycle_ref.cpp)
 add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 
-# 3_for_each
-set(3_for_each_SRC 3_for_each.cpp)
-add_executable(3_for_each ${3_for_each_SRC})
+# rvalue_lvalue_forward
+set(rvalue_lvalue_forward_SRC rvalue_lvalue_forward.cpp)
+add_executable(rvalue_lvalue_forward ${rvalue_lvalue_forward_SRC})
 
 # 4_nullptr
 set(4_nullptr_SRC 4_nullptr.cpp)
@@ -42,13 +42,13 @@ add_executable(move ${move_SRC})
 set(7_delegating_constructor_SRC 7_delegating_constructor.cpp)
 add_executable(7_delegating_constructor ${7_delegating_constructor_SRC})
 
-# 8_virutual_function_override
-set(8_virutual_function_override_SRC 8_virutual_function_override.cpp)
-add_executable(8_virutual_function_override ${8_virutual_function_override_SRC})
+# override_identifier
+set(override_identifier_SRC override_identifier.cpp)
+add_executable(override_identifier ${override_identifier_SRC})
 
-# 9_final_delete
-set(9_final_delete_SRC 9_final_delete.cpp)
-add_executable(9_final_delete ${9_final_delete_SRC})
+# final_delete
+set(final_delete_SRC final_delete.cpp)
+add_executable(final_delete ${final_delete_SRC})
 
 # 10_constexpr
 set(10_constexpr_SRC 10_constexpr.cpp)
@@ -84,7 +84,6 @@ add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 
 endif(0)
 
-
-# move
-set(move_SRC move.cpp)
-add_executable(move ${move_SRC})
+# rvalue_lvalue_forward
+set(rvalue_lvalue_forward_SRC rvalue_lvalue_forward.cpp)
+add_executable(rvalue_lvalue_forward ${rvalue_lvalue_forward_SRC})
