@@ -26,9 +26,9 @@ add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 set(rvalue_lvalue_forward_SRC rvalue_lvalue_forward.cpp)
 add_executable(rvalue_lvalue_forward ${rvalue_lvalue_forward_SRC})
 
-# 4_nullptr
-set(4_nullptr_SRC 4_nullptr.cpp)
-add_executable(4_nullptr ${4_nullptr_SRC})
+# memory_order
+set(memory_order_SRC memory_order.cpp)
+add_executable(memory_order ${memory_order_SRC})
 
 # 5_enum_class
 set(5_enum_class_SRC 5_enum_class.cpp)
@@ -84,6 +84,6 @@ add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 
 endif(0)
 
-# rvalue_lvalue_forward
-set(rvalue_lvalue_forward_SRC rvalue_lvalue_forward.cpp)
-add_executable(rvalue_lvalue_forward ${rvalue_lvalue_forward_SRC})
+# memory_order
+set(memory_order_SRC memory_order.cpp)
+add_executable(memory_order ${memory_order_SRC})
