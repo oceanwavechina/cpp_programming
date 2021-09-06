@@ -5,12 +5,14 @@
  *      Author: liuyanan
  */
 
-
-
-
 #include <iostream>
 
 using namespace std;
+
+
+/*
+  在继承时，如果变量名字相同，那子类中会有两个变量。如果要引用父类的变量需要加父类前缀，如 BASE:x
+ */
 
 class A
 {

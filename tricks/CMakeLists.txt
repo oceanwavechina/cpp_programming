@@ -114,10 +114,15 @@ add_executable(test_new ${test_new_SRC})
 set(the_const_SRC the_const.cpp)
 add_executable(the_const ${the_const_SRC})
 
-endif(0)
-
 # virtual_func_of_null_object.cpp
 set(virtual_func_of_null_object_SRC virtual_func_of_null_object.cpp)
 add_executable(virtual_func_of_null_object ${virtual_func_of_null_object_SRC})
+
+endif(0)
+
+
+# class_derive_same_data_member.cpp
+set(class_derive_same_data_member_SRC class_derive_same_data_member.cpp)
+add_executable(class_derive_same_data_member ${class_derive_same_data_member_SRC})
 
 

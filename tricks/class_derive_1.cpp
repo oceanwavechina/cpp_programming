@@ -40,7 +40,7 @@ public:
 		//
 	{
 		_counter = ++i;
-		cout << "construct:" << _counter << endl;
+		cout << "Derived construct:" << _counter << endl;
 	}
 	virtual ~Derived() {
 		cout << "Derived destructor: " << _counter << endl;
@@ -68,11 +68,12 @@ private:
 
 int main()
 {
+	cout << "\n------------------------------ delete Derived pointer --------------------------------\n " << endl;
 	Derived *p_1 = new Derived();
 	p_1->doSomething();
 	delete p_1;
 
-	cout << "\n --------------------------------\n " << endl;
+	cout << "\n------------------------------ delete Base pointer ----------------------------------\n " << endl;
 
 	// 加不加 virtual输出的值是不一样的
 	// 看对象是哪个，就是调用哪个的方法
@@ -80,9 +81,12 @@ int main()
 	p_2->doSomething();
 	delete p_2;
 
-	Derived a[10];
+	cout << "\n------------------------------ delete array pointer ----------------------------------\n " << endl;
 
-//	Derived* b = new Derived[3];
+	Derived* p_derived_array  = new Derived[3];
+	// delete p_derived_array;	// 如果用 delete 去释放一个数组，不仅仅是调用几次析构的问题，而是程序会直接崩溃
+
+	cout << "\n------------------------------ get member func address ----------------------------------\n " << endl;
 
 	Derived d;
 	typedef string (Derived::*fun)();

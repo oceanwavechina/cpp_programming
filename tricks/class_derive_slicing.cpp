@@ -5,12 +5,15 @@
  *      Author: liuyanan
  */
 
-
-
-
 #include <iostream>
 
 using namespace std;
+
+
+/*
+ 恐怕c++多继承才会有这样的问题， 这可能是c++独有的问题
+ */
+
 
 class A
 {
