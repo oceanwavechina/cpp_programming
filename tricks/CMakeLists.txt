@@ -118,11 +118,15 @@ add_executable(the_const ${the_const_SRC})
 set(virtual_func_of_null_object_SRC virtual_func_of_null_object.cpp)
 add_executable(virtual_func_of_null_object ${virtual_func_of_null_object_SRC})
 
-endif(0)
-
-
 # class_derive_same_data_member.cpp
 set(class_derive_same_data_member_SRC class_derive_same_data_member.cpp)
 add_executable(class_derive_same_data_member ${class_derive_same_data_member_SRC})
+
+endif(0)
+
+
+# memory_leak_detection.cpp
+set(memory_leak_detection_SRC memory_leak_detection.cpp)
+add_executable(memory_leak_detection ${memory_leak_detection_SRC})
 
 
