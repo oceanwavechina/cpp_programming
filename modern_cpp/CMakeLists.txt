@@ -70,9 +70,9 @@ add_executable(13_multi_threading_lock_lazy_init ${13_multi_threading_lock_lazy_
 set(enable_shared_from_this_SRC 14_pointers.cpp)
 add_executable(enable_shared_from_this ${enable_shared_from_this_SRC})
 
-# 15_macro
-set(15_macro_SRC 15_macro.cpp)
-add_executable(15_macro ${15_macro_SRC})
+# macro_var_arg
+set(macro_var_arg_SRC macro_var_arg.cpp)
+add_executable(macro_var_arg ${macro_var_arg_SRC})
 
 # shared_ptr 
 set(shared_ptr_SRC shared_ptr.cpp)
@@ -82,8 +82,13 @@ add_executable(shared_ptr ${shared_ptr_SRC})
 set(weak_ptr_and_cycle_ref_SRC weak_ptr_and_cycle_ref.cpp)
 add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 
-endif(0)
-
 # memory_order
 set(memory_order_SRC memory_order.cpp)
 add_executable(memory_order ${memory_order_SRC})
+
+endif(0)
+
+# var_arg_template
+set(var_arg_template_SRC var_arg_template.cpp)
+add_executable(var_arg_template ${var_arg_template_SRC})
+
