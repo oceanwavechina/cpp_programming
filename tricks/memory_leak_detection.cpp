@@ -50,9 +50,31 @@ private:
 unordered_map<void*, string> PointerRef::_refs;
 
 
+/**/
+void* operator new(std::size_t sz, const char* file, int line)
+{
+	void* ret = std::malloc(sz);
+	if(ret) {
+		cout << "new size:" << sz << ", ptr: " << ret << ", @: " << file << ":" << line << endl;
+		return ret;
+	}
+
+	throw std::bad_alloc();
+}
+
+void operator delete(void* ptr, const char* file, int line) noexcept
+{
+    cout << "delete ptr: " << ptr << ", line: " << __LINE__ << endl;
+    std::free(ptr);
+}
+
+#define TEST_NEW new(__FILE__,__LINE__)
+#define new TEST_NEW
+
 int main(int argc, char **argv) {
 
-	int* p = new int(0);
+#if 0
+	int* p = (int*)std::malloc(10);
 
 	// TODO 可变参模板？？
 	PointerRef::ref(p, __FUNCTION__, __LINE__);
@@ -60,6 +82,14 @@ int main(int argc, char **argv) {
 
 	PointerRef::unref(p);
 	PointerRef::display();
+#else
+	int *p  = new int(0);
+
+	delete p;
+#endif
+
+
+
 
 	return 0;
 }

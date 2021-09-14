@@ -130,11 +130,13 @@ add_executable(memory_leak_detection ${memory_leak_detection_SRC})
 set(class_derive_1_SRC class_derive_1.cpp)
 add_executable(class_derive_1 ${class_derive_1_SRC})
 
-endif(0)
-
-
 # deadlock_avoid.cpp
 set(deadlock_avoid_SRC deadlock_avoid.cpp)
 add_executable(deadlock_avoid ${deadlock_avoid_SRC})
 
+endif(0)
 
+
+# memory_leak_detection.cpp
+set(memory_leak_detection_SRC memory_leak_detection.cpp)
+add_executable(memory_leak_detection ${memory_leak_detection_SRC})
