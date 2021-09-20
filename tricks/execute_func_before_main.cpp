@@ -29,6 +29,8 @@ public:
 GlobalObj g_glocal_obj;
 int StaticObj::_static_var = func("in static member init");
 
+static int g_a = func("c_style_static_init");
+
 
 
 

@@ -137,6 +137,6 @@ add_executable(deadlock_avoid ${deadlock_avoid_SRC})
 endif(0)
 
 
-# memory_leak_detection.cpp
-set(memory_leak_detection_SRC memory_leak_detection.cpp)
-add_executable(memory_leak_detection ${memory_leak_detection_SRC})
+# execute_func_before_main.cpp
+set(execute_func_before_main_SRC execute_func_before_main.cpp)
+add_executable(execute_func_before_main ${execute_func_before_main_SRC})
