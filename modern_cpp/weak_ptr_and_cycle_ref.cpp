@@ -8,7 +8,8 @@ using namespace std;
 /*
  	1. 为什么能把 shared_ptr 赋值给 weak_ptr ?
  	2. 为什么 shared_ptr 赋值给 weak_ptr 后，原有对象的引用计数不会改变？
- 	3. shared_ptr 赋值操作会是对象引用计数加1， 赋值操作的过程中到底发生了什么？
+ 	3. weak_ptr 的 lock 操作的逻辑是什么？
+ 	3. weak_ptr 和 shared_ptr 的区别是什么？
 
 	问题 1：
  	 	这是因为 weak_ptr 类里边实现了对应的赋值构造函数：
@@ -38,6 +39,71 @@ using namespace std;
     		}
 
     	注意上边 incremnt 的是 __shared_weak_owners_
+
+    问题 3：
+		weak_ptr 的lock 操作实现如下：
+			template<class _Tp>
+			shared_ptr<_Tp>
+			weak_ptr<_Tp>::lock() const _NOEXCEPT
+			{
+				shared_ptr<_Tp> __r;
+				__r.__cntrl_ = __cntrl_ ? __cntrl_->lock() : __cntrl_;
+				if (__r.__cntrl_)
+					__r.__ptr_ = __ptr_;
+				return __r;
+			}
+
+			可以看到返回的是一个临时的 shared_ptr<_Tp> 对象，这个对象会根据引用计数器是否还在(对象没有被释放)，来确定shared_ptr 中的 __ptr_ 是否有效
+			这也就说明了为什么lock 返回值可能是空对象
+
+	问题 4：
+		shared_ptr uses an extra "counter" object (aka. "shared count" or "control block") to store the reference count.
+		(BTW: that "counter" object also stores the deleter.)
+
+		Every shared_ptr and weak_ptr contains a pointer to the actual pointee, and a second pointer to the "counter" object.
+
+		To implement weak_ptr, the "counter" object stores two different counters:
+
+			The "use count" is the number of shared_ptr instances pointing to the object.
+			The "weak count" is the number of weak_ptr instances pointing to the object, plus one if the "use count" is still > 0.
+
+		The pointee is deleted when the "use count" reaches zero.
+
+		The "counter" helper object is deleted when the "weak count" reaches zero (which means the "use count" must also be zero, see above).
+
+		When you try to obtain a shared_ptr from a weak_ptr, the library atomically checks the "use count", and if it's > 0 increments it.
+		If that succeeds you get your shared_ptr.
+		If the "use count" was already zero you get an empty shared_ptr instance instead.
+
+		EDIT:
+			Now, why do they add one to the weak count instead of just releasing the "counter" object when both counts drop to zero? Good question.
+
+			The alternative would be to delete the "counter" object when both the "use count" and the "weak count" drop to zero.
+
+			Here's the first reason:
+				Checking two (pointer sized) counters atomically is not possible on every platform,
+				and even where it is, it's more complicated than checking just one counter.
+
+			Another reason is that
+				the deleter must stay valid until it has finished executing.
+				Since the deleter is stored in the "counter" object, that means the "counter" object must stay valid.
+				Consider what could happen if there is one shared_ptr and one weak_ptr to some object,
+				and they are reset at the same time in concurrent threads.
+				Let's say the shared_ptr comes first.
+				It decreases the "use count" to zero, and begins executing the deleter.
+				Now the weak_ptr decreases the "weak count" to zero, and finds the "use count" is zero as well.
+				So it deletes the "counter" object, and with it the deleter. While the deleter is still running.
+
+			Of course there would be different ways to assure that the "counter" object stays alive,
+			but I think increasing the "weak count" by one is a very elegant and intuitive solution.
+			The "weak count" becomes the reference count for the "counter" object.
+			And since shared_ptrs reference the counter object too, they too have to increment the "weak count".
+
+			A probably even more intuitive solution would be to increment the "weak count" for every single shared_ptr,
+			since every single shared_ptr hold's a reference to the "counter" object.
+
+			Adding one for all shared_ptr instances is just an optimization
+			(saves one atomic increment/decrement when copying/assigning shared_ptr instances).
 
  */
 

@@ -54,9 +54,9 @@ add_executable(final_delete ${final_delete_SRC})
 set(10_constexpr_SRC 10_constexpr.cpp)
 add_executable(10_constexpr ${10_constexpr_SRC})
 
-# 11_lambda_function
-set(11_lambda_function_SRC 11_lambda_function.cpp)
-add_executable(11_lambda_function ${11_lambda_function_SRC})
+# lambda
+set(lambda_SRC lambda.cpp)
+add_executable(lambda ${lambda_SRC})
 
 # 12_multi_threading_basic
 set(12_multi_threading_basic_SRC 12_multi_threading_basic.cpp)
@@ -86,9 +86,12 @@ add_executable(weak_ptr_and_cycle_ref ${weak_ptr_and_cycle_ref_SRC})
 set(memory_order_SRC memory_order.cpp)
 add_executable(memory_order ${memory_order_SRC})
 
-endif(0)
-
 # var_arg_template
 set(var_arg_template_SRC var_arg_template.cpp)
 add_executable(var_arg_template ${var_arg_template_SRC})
 
+endif(0)
+
+# lambda
+set(lambda_SRC lambda.cpp)
+add_executable(lambda ${lambda_SRC})

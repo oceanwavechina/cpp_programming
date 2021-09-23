@@ -16,11 +16,15 @@ using namespace std;
 
 
 /*
+
+refs：
+	https://stackoverflow.com/questions/5671241/how-does-weak-ptr-work
+
 TODO: 智能指针多线程安全问题
 1. 对于指向同一个 object 的 不同shared_ptr， 其引用计数的变化是安全的
 2. 对于 相同的以个 shared_ptr， 多线程对其修改时，是不安全的，会引发问题
 3. shared_ptr 赋值操作会是对象引用计数加1， 赋值操作的过程中到底发生了什么？
-3. shared_ptr 的继承关系 ？
+4. shared_ptr 的继承关系 ？
 
 
 第一个问题源码实现 (为什么不同的shared_ptr指针引用计数是安全的)
@@ -95,7 +99,7 @@ TODO: 智能指针多线程安全问题
 
 class Info {
 public:
-    Info() { cout << "Info Constructor" << endl;}
+    Info(): data(0) { cout << "Info Constructor" << endl;}
     ~Info() { cout << "Info Destructor" << endl; }
 private:
     int data;
