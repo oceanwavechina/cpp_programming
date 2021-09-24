@@ -5,6 +5,9 @@
  *      Author: liuyanan
  */
 
+#include <iostream>
+
+using namespace std;
 
 int num = 0;
 
@@ -21,6 +24,7 @@ const int get_num_val()
 
 /*
 // 编译不过，因为 const 只能修饰 member function
+// 当修改一个全局，非成员函数时编译报错
 int modify_num_val(int& a) const
 {
 	a += 1;
@@ -47,6 +51,26 @@ public:
 		return y;
 	}
 
+	int modify_parameter(int& z) const
+	{
+		// 对 参数的修改也是可以
+		z += 1;
+		return z;
+	}
+
+	int get_val() {
+		return x;
+	}
+
+	/*
+	// const 类型的函数不能调用非const 的成员函数
+	int call_none_const_func() const
+	{
+		return get_val();
+	}
+	*/
+
+
 private:
 	int x;
 
@@ -68,6 +92,11 @@ int main(int argc, char **argv) {
 	A a;
 	// a.read_val();
 	a.read_static_val();
+	int z = 1;
+	cout << "modify parameter: " << a.modify_parameter(z) << endl;
+	cout << "new z: " << z << endl;
+
+	a.call_none_const_func();
 
 	return 0;
 }

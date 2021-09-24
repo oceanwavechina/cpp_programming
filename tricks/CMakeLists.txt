@@ -136,7 +136,6 @@ add_executable(deadlock_avoid ${deadlock_avoid_SRC})
 
 endif(0)
 
-
-# execute_func_before_main.cpp
-set(execute_func_before_main_SRC execute_func_before_main.cpp)
-add_executable(execute_func_before_main ${execute_func_before_main_SRC})
+# the_const.cpp
+set(the_const_SRC the_const.cpp)
+add_executable(the_const ${the_const_SRC})
