@@ -83,8 +83,10 @@ public:
     Cat(int age, const string& name):age(age), name(name) {
 
     }
-    int age;
-    string name;
+
+    // 默认初始化在新的c++标准中只支持了，可以不用写默认构造函数初始化列表了，但是初始化列表的优先级更高
+    int age = 0;
+    string name{"cat_name"};
 };
 
 

@@ -63,7 +63,7 @@ void captures_by_copy() {
     cout << __FUNCTION__ << " before lambda actual &y: " << &y << ", y: " << y << ", a: " << a << ", &a: " << &a << endl;
 
     /*
-     使用[&]告诉编译器我们要引用本地变量,
+     使用[=]告诉编译器我们要引用本地变量, 包括this指针
      	 其中 a 是引用传递，其余的是按值拷贝传递
 
      注意按值拷贝捕获变量，默认是不可以修改的。如果需要修改需要加 mutable 关键字修饰
@@ -101,4 +101,13 @@ int main(int argc, char const *argv[])
     captures_by_ref();
 
     captures_by_copy();
+
+    int x = 5;
+    auto foo = [r = x+1]{return r;};
+    cout << "foo=" << foo() << endl;
+
+
+
+
+
 }
